@@ -1,0 +1,160 @@
+// =============================================
+// Spacing Utilities — Base: 4px
+// =============================================
+// Scale:
+//   0  →  0px
+//   1  →  4px
+//   2  →  8px
+//   3  →  12px
+//   4  →  16px
+//   5  →  20px
+//   6  →  24px
+//   7  →  28px
+//   8  →  32px
+//   9  →  36px
+//   10 →  40px
+//   11 →  44px
+//   12 →  48px
+//   14 →  56px
+//   16 →  64px
+//   20 →  80px
+//   24 →  96px
+// =============================================
+
+$base: 4px;
+
+$spacers: (
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+    11: 11,
+    12: 12,
+    14: 14,
+    16: 16,
+    20: 20,
+    24: 24,
+);
+
+// ── Generate all spacing utilities ──────────
+@each $key, $multiplier in $spacers {
+    $value: 0;
+
+    @if $multiplier !=0 {
+        $value: $multiplier * $base;
+    }
+
+    // ── Padding ─────────────────────────────────
+    // .p-{n}  — all sides
+    .p-#{$key} {
+        padding: $value !important;
+    }
+
+    // .pt-{n} — top
+    .pt-#{$key} {
+        padding-top: $value !important;
+    }
+
+    // .pb-{n} — bottom
+    .pb-#{$key} {
+        padding-bottom: $value !important;
+    }
+
+    // .pl-{n} — left
+    .pl-#{$key} {
+        padding-left: $value !important;
+    }
+
+    // .pr-{n} — right
+    .pr-#{$key} {
+        padding-right: $value !important;
+    }
+
+    // .px-{n} — horizontal (left + right)
+    .px-#{$key} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+
+    // .py-{n} — vertical (top + bottom)
+    .py-#{$key} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+    }
+
+    // ── Margin ──────────────────────────────────
+    // .m-{n}  — all sides
+    .m-#{$key} {
+        margin: $value !important;
+    }
+
+    // .mt-{n} — top
+    .mt-#{$key} {
+        margin-top: $value !important;
+    }
+
+    // .mb-{n} — bottom
+    .mb-#{$key} {
+        margin-bottom: $value !important;
+    }
+
+    // .ml-{n} — left
+    .ml-#{$key} {
+        margin-left: $value !important;
+    }
+
+    // .mr-{n} — right
+    .mr-#{$key} {
+        margin-right: $value !important;
+    }
+
+    // .mx-{n} — horizontal (left + right)
+    .mx-#{$key} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+    }
+
+    // .my-{n} — vertical (top + bottom)
+    .my-#{$key} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+    }
+}
+
+// ── Auto margin utilities ────────────────────
+.m-auto {
+    margin: auto !important;
+}
+
+.mt-auto {
+    margin-top: auto !important;
+}
+
+.mb-auto {
+    margin-bottom: auto !important;
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.mr-auto {
+    margin-right: auto !important;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.my-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}

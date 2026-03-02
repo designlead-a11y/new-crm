@@ -1,0 +1,72 @@
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: var(--bg-surface-solid);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+    white-space: nowrap;
+
+    &.hot {
+        background-color: rgba(245, 158, 11, 0.1);
+        color: var(--accent-warning);
+        border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    &.verified,
+    &.badge-success {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--accent-success, #10b981);
+        border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    &.badge-neutral {
+        background-color: rgba(100, 116, 139, 0.1);
+        color: var(--text-secondary, #64748b);
+        border-color: rgba(100, 116, 139, 0.3);
+    }
+
+    &.badge-danger {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: var(--status-danger, #ef4444);
+        border-color: rgba(239, 68, 68, 0.3);
+    }
+}
+
+.match-score {
+    display: flex;
+    align-items: center;
+}
+
+.score-ring {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: conic-gradient(var(--accent-success) var(--score, 0%), var(--border-subtle) 0%);
+        z-index: -1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        border-radius: 50%;
+        background-color: var(--bg-surface-solid);
+        z-index: -1;
+    }
+}

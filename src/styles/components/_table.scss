@@ -1,0 +1,123 @@
+/* Table area  */
+.table-panel {
+    padding: 0;
+    overflow: hidden;
+    /* Ensure horizontal scroll on mobile if needed */
+    overflow-x: auto;
+}
+
+.table-header-panel {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.table-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.lead-table,
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 600px;
+    /* Minimum width to force horizontal scroll on small screens */
+
+    th {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        color: var(--text-secondary, #64748b);
+        font-weight: 600;
+        font-size: 0.85rem;
+        background-color: var(--bg-surface-solid, #f8fafc);
+        border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+
+        &:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        [data-theme='dark'] & {
+            background-color: rgba(15, 23, 42, 0.4);
+        }
+    }
+
+    td {
+        padding: 0.65rem 1rem;
+        border-bottom: 1px solid var(--border-subtle, #f1f5f9);
+        vertical-align: middle;
+        font-size: 0.85rem;
+        color: var(--text-primary, #0f172a);
+
+        [data-theme='dark'] & {
+            border-bottom-color: rgba(51, 65, 85, 0.5);
+        }
+    }
+
+    tbody tr {
+        transition: background-color 0.15s ease;
+
+        &:hover {
+            background-color: var(--bg-surface-hover, #f8fafc);
+
+            [data-theme='dark'] & {
+                background-color: rgba(15, 23, 42, 0.6);
+            }
+        }
+
+        &:last-child td {
+            border-bottom: none;
+        }
+    }
+}
+
+/* User column styling */
+.lead-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lead-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background-color: var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.lead-role {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+    .table-header-panel {
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    .lead-table th,
+    .data-table th {
+        padding: 0.85rem 1.5rem;
+    }
+
+    .lead-table td,
+    .data-table td {
+        padding: 0.75rem 1.5rem;
+    }
+}

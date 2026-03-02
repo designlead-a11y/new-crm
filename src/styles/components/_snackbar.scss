@@ -1,0 +1,125 @@
+.snackbar-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+}
+
+.snackbar {
+    min-width: 300px;
+    max-width: 450px;
+    padding: 1rem 1.25rem;
+    background: var(--bg-secondary, #1a1a1a);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    pointer-events: all;
+    animation: snackbar-slide-up 0.3s ease-out;
+    border-left: 4px solid var(--primary-color);
+
+    &.success {
+        border-left-color: var(--status-success, #10b981);
+
+        .snackbar-icon {
+            color: var(--status-success, #10b981);
+        }
+    }
+
+    &.danger {
+        border-left-color: var(--status-danger, #ef4444);
+
+        .snackbar-icon {
+            color: var(--status-danger, #ef4444);
+        }
+    }
+
+    &.warning {
+        border-left-color: var(--status-warning, #f59e0b);
+
+        .snackbar-icon {
+            color: var(--status-warning, #f59e0b);
+        }
+    }
+
+    &.info {
+        border-left-color: var(--primary-color);
+
+        .snackbar-icon {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.snackbar-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.snackbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.snackbar-message {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.snackbar-close {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+}
+
+@keyframes snackbar-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.snackbar-leaving {
+    animation: snackbar-fade-out 0.3s ease-in forwards;
+}
+
+@keyframes snackbar-fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+}

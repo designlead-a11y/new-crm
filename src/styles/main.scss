@@ -1,0 +1,80 @@
+// Abstracts & Themes
+@use './themes/themes' as *;
+
+// Base Styles
+@use './base/typography' as *;
+@use './base/base' as *;
+@use './base/grid' as *;
+@use './base/spacing' as *;
+@use './base/flexbox' as *;
+
+// Layout Structure
+@use './layout/main' as *;
+@use './layout/sidebar' as *;
+@use './layout/topbar' as *;
+
+// Reusable Components
+@use './components/buttons' as *;
+@use './components/cards' as *;
+@use './components/table' as *;
+@use './components/badges' as *;
+@use './components/crm-cards' as *;
+@use './components/tabs' as *;
+@use './components/modal' as *;
+@use './components/breadcrumbs' as *;
+@use './components/snackbar' as *;
+
+// Mixins/Utilities could just be placed in abstractions
+.glass-panel {
+    background: var(--bg-surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-panel);
+    transition: var(--transition-theme);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s var(--transition-smooth) forwards;
+}
+
+.mobile-only {
+    display: flex;
+}
+
+.hidden-mobile {
+    display: none;
+}
+
+.desktop-only {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none !important;
+    }
+
+    .hidden-mobile {
+        display: inline-flex;
+    }
+
+    .desktop-only {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,24 @@
+.total-count{background:#f1f5f9;padding:0.25rem 0.5rem;border-radius:8px;color:var(--text-secondary);display:inline-block}
+.table-container{width:100%;overflow:auto}
+.data-table{width:100%;border-collapse:collapse}
+.data-table thead th{background:transparent;text-align:left;padding:1rem;border-bottom:1px solid var(--border-subtle);font-weight:600;color:var(--text-secondary)}
+.data-table tbody td{padding:1rem;border-bottom:1px solid rgba(0,0,0,0.04)}
+.student-name{color:var(--accent-primary);font-weight:600}
+.student-meta{color:var(--text-secondary);font-size:0.9rem}
+.muted{color:var(--text-secondary);font-size:0.9rem}
+.royalty-amount{color:var(--accent-success);font-weight:700}
+.pill{background:var(--accent-secondary);color:white;padding:4px 8px;border-radius:12px;font-size:0.75rem}
+
+/* Modal styles */
+.modal-overlay{position:fixed;inset:0;background:rgba(11,15,30,0.4);display:flex;align-items:center;justify-content:center;z-index:10000}
+/* modal-content styling moved to global component stylesheet; add size class there if needed */
+.modal-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-subtle);padding-bottom:0.5rem}
+.modal-header h3{margin:0}
+.modal-close{background:none;border:none;font-size:1.5rem;cursor:pointer}
+.modal-body{padding-top:0.75rem}
+.form-row{display:flex;gap:1rem;align-items:flex-start}
+.form-row label{display:block;font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.25rem}
+.form-row input{padding:0.6rem;border:1px solid var(--border-subtle);border-radius:8px;min-width:180px}
+.modal-footer{display:flex;justify-content:flex-end;gap:0.5rem;padding-top:0.75rem;border-top:1px solid var(--border-subtle);margin-top:0.5rem}
+
+.badge-new{background:#7c3aed;color:white;padding:4px 8px;border-radius:8px;font-size:0.65rem;margin-left:0.5rem}
