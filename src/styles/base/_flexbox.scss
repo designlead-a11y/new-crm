@@ -1,0 +1,317 @@
+// =============================================
+// Responsive Flexbox Utilities
+// =============================================
+// Breakpoints (same as grid):
+//   (none) — all screen sizes
+//   sm     — >= 576px
+//   md     — >= 768px
+//   lg     — >= 992px
+//   xl     — >= 1200px
+//   xxl    — >= 1400px
+// =============================================
+
+$flex-breakpoints: (
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px,
+    'xxl': 1400px,
+);
+
+// ── Mixin ────────────────────────────────────
+@mixin make-flex($infix: '') {
+    $sep: '';
+
+    @if $infix !='' {
+        $sep: '-';
+    }
+
+    // Display
+    .d#{$sep}#{$infix}-flex {
+        display: flex !important;
+    }
+
+    .d#{$sep}#{$infix}-inline-flex {
+        display: inline-flex !important;
+    }
+
+    .d#{$sep}#{$infix}-block {
+        display: block !important;
+    }
+
+    .d#{$sep}#{$infix}-inline-block {
+        display: inline-block !important;
+    }
+
+    .d#{$sep}#{$infix}-none {
+        display: none !important;
+    }
+
+    // Flex Direction
+    .flex#{$sep}#{$infix}-row {
+        flex-direction: row !important;
+    }
+
+    .flex#{$sep}#{$infix}-row-reverse {
+        flex-direction: row-reverse !important;
+    }
+
+    .flex#{$sep}#{$infix}-column {
+        flex-direction: column !important;
+    }
+
+    .flex#{$sep}#{$infix}-column-reverse {
+        flex-direction: column-reverse !important;
+    }
+
+    // Flex Wrap
+    .flex#{$sep}#{$infix}-wrap {
+        flex-wrap: wrap !important;
+    }
+
+    .flex#{$sep}#{$infix}-nowrap {
+        flex-wrap: nowrap !important;
+    }
+
+    .flex#{$sep}#{$infix}-wrap-reverse {
+        flex-wrap: wrap-reverse !important;
+    }
+
+    // Justify Content
+    .justify#{$sep}#{$infix}-start {
+        justify-content: flex-start !important;
+    }
+
+    .justify#{$sep}#{$infix}-end {
+        justify-content: flex-end !important;
+    }
+
+    .justify#{$sep}#{$infix}-center {
+        justify-content: center !important;
+    }
+
+    .justify#{$sep}#{$infix}-between {
+        justify-content: space-between !important;
+    }
+
+    .justify#{$sep}#{$infix}-around {
+        justify-content: space-around !important;
+    }
+
+    .justify#{$sep}#{$infix}-evenly {
+        justify-content: space-evenly !important;
+    }
+
+    // Align Items
+    .items#{$sep}#{$infix}-start {
+        align-items: flex-start !important;
+    }
+
+    .items#{$sep}#{$infix}-end {
+        align-items: flex-end !important;
+    }
+
+    .items#{$sep}#{$infix}-center {
+        align-items: center !important;
+    }
+
+    .items#{$sep}#{$infix}-baseline {
+        align-items: baseline !important;
+    }
+
+    .items#{$sep}#{$infix}-stretch {
+        align-items: stretch !important;
+    }
+
+    // Align Self
+    .self#{$sep}#{$infix}-auto {
+        align-self: auto !important;
+    }
+
+    .self#{$sep}#{$infix}-start {
+        align-self: flex-start !important;
+    }
+
+    .self#{$sep}#{$infix}-end {
+        align-self: flex-end !important;
+    }
+
+    .self#{$sep}#{$infix}-center {
+        align-self: center !important;
+    }
+
+    .self#{$sep}#{$infix}-baseline {
+        align-self: baseline !important;
+    }
+
+    .self#{$sep}#{$infix}-stretch {
+        align-self: stretch !important;
+    }
+
+    // Align Content (multi-line)
+    .content#{$sep}#{$infix}-start {
+        align-content: flex-start !important;
+    }
+
+    .content#{$sep}#{$infix}-end {
+        align-content: flex-end !important;
+    }
+
+    .content#{$sep}#{$infix}-center {
+        align-content: center !important;
+    }
+
+    .content#{$sep}#{$infix}-between {
+        align-content: space-between !important;
+    }
+
+    .content#{$sep}#{$infix}-around {
+        align-content: space-around !important;
+    }
+
+    .content#{$sep}#{$infix}-stretch {
+        align-content: stretch !important;
+    }
+
+    // Flex Grow / Shrink
+    .flex#{$sep}#{$infix}-grow-0 {
+        flex-grow: 0 !important;
+    }
+
+    .flex#{$sep}#{$infix}-grow-1 {
+        flex-grow: 1 !important;
+    }
+
+    .flex#{$sep}#{$infix}-shrink-0 {
+        flex-shrink: 0 !important;
+    }
+
+    .flex#{$sep}#{$infix}-shrink-1 {
+        flex-shrink: 1 !important;
+    }
+
+    // Flex Shorthand
+    .flex#{$sep}#{$infix}-1 {
+        flex: 1 !important;
+    }
+
+    .flex#{$sep}#{$infix}-auto {
+        flex: 0 0 auto !important;
+    }
+
+    .flex#{$sep}#{$infix}-none {
+        flex: none !important;
+    }
+
+    // Gap (uses 4px spacing base)
+    .gap#{$sep}#{$infix}-0 {
+        gap: 0 !important;
+    }
+
+    .gap#{$sep}#{$infix}-1 {
+        gap: 4px !important;
+    }
+
+    .gap#{$sep}#{$infix}-2 {
+        gap: 8px !important;
+    }
+
+    .gap#{$sep}#{$infix}-3 {
+        gap: 12px !important;
+    }
+
+    .gap#{$sep}#{$infix}-4 {
+        gap: 16px !important;
+    }
+
+    .gap#{$sep}#{$infix}-5 {
+        gap: 20px !important;
+    }
+
+    .gap#{$sep}#{$infix}-6 {
+        gap: 24px !important;
+    }
+
+    .gap#{$sep}#{$infix}-8 {
+        gap: 32px !important;
+    }
+
+    .gap#{$sep}#{$infix}-10 {
+        gap: 40px !important;
+    }
+
+    .gap#{$sep}#{$infix}-12 {
+        gap: 48px !important;
+    }
+
+    // Column Gap
+    .gap-x#{$sep}#{$infix}-0 {
+        column-gap: 0 !important;
+    }
+
+    .gap-x#{$sep}#{$infix}-2 {
+        column-gap: 8px !important;
+    }
+
+    .gap-x#{$sep}#{$infix}-4 {
+        column-gap: 16px !important;
+    }
+
+    .gap-x#{$sep}#{$infix}-6 {
+        column-gap: 24px !important;
+    }
+
+    .gap-x#{$sep}#{$infix}-8 {
+        column-gap: 32px !important;
+    }
+
+    // Row Gap
+    .gap-y#{$sep}#{$infix}-0 {
+        row-gap: 0 !important;
+    }
+
+    .gap-y#{$sep}#{$infix}-2 {
+        row-gap: 8px !important;
+    }
+
+    .gap-y#{$sep}#{$infix}-4 {
+        row-gap: 16px !important;
+    }
+
+    .gap-y#{$sep}#{$infix}-6 {
+        row-gap: 24px !important;
+    }
+
+    .gap-y#{$sep}#{$infix}-8 {
+        row-gap: 32px !important;
+    }
+
+    // Order
+    .order#{$sep}#{$infix}-first {
+        order: -1 !important;
+    }
+
+    .order#{$sep}#{$infix}-last {
+        order: 99 !important;
+    }
+
+    .order#{$sep}#{$infix}-none {
+        order: 0 !important;
+    }
+
+    @for $i from 1 through 12 {
+        .order#{$sep}#{$infix}-#{$i} {
+            order: $i !important;
+        }
+    }
+}
+
+// ── Base (no breakpoint) ─────────────────────
+@include make-flex('');
+
+// ── Responsive variants ──────────────────────
+@each $name, $min-width in $flex-breakpoints {
+    @media (min-width: $min-width) {
+        @include make-flex($name);
+    }
+}

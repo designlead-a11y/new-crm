@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    /* Light mode radial gradients */
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(241, 129, 44, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    transition: var(--transition-theme);
+}
+
+[data-theme="dark"] body {
+    /* Dark mode radial gradients */
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(241, 129, 44, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(33, 44, 82, 0.15) 0%, transparent 50%);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-surface-solid);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-subtle);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Typography utility classes */
+.text-primary { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.text-info { color: var(--accent-secondary) !important; }
+.text-success { color: var(--accent-success) !important; }
+.text-danger { color: var(--accent-danger) !important; }
+.text-warning { color: var(--accent-warning) !important; }
+
+// ---------------------------------------------
+// form control utilities – globally available
+// ---------------------------------------------
+
+// mixin for customizable form elements
+@mixin form-control($width: 100%, $max-width: null) {
+    width: $width;
+    @if $max-width {
+        max-width: $max-width;
+    }
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--border-subtle, #cbd5e1);
+    border-radius: 6px;
+    background: var(--surface-primary, #fff);
+    color: var(--text-primary, #0f172a);
+    font-size: 0.9rem;
+    font-family: inherit;
+    letter-spacing: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-primary, #3b82f6);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    [data-theme='dark'] & {
+        background: rgba(15, 23, 42, 0.5);
+        border-color: var(--border-subtle, #334155);
+
+        &:focus {
+            border-color: var(--accent-primary, #3b82f6);
+        }
+    }
+}
+
+// default and variants
+.form-control { @include form-control(); }
+.form-control-inline { @include form-control(auto); display: inline-block; }
+.form-control-narrow { @include form-control(100%, 300px); }
+.form-control-wide { @include form-control(100%, 800px); }
+.form-control-sm { @include form-control(100%); padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+.form-control-lg { @include form-control(100%); padding: 0.85rem 1rem; font-size: 1rem; }
+.form-control-block { @include form-control(); }
+
+// placeholder color for text inputs and textareas
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+// Automatically style native form elements (except checkboxes/radios) so developers don't forget to add the class
+// input[type="text"],
+// input[type="email"],
+// input[type="password"],
+// input[type="date"],
+// input[type="number"],
+// input[type="tel"],
+// input[type="url"],
+// textarea,
+// select {
+//     @extend .form-control;
+// }
+

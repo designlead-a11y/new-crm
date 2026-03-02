@@ -1,0 +1,250 @@
+// =============================================
+// CRM Summary Cards
+// =============================================
+
+.crm-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 1300px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Base card
+.crm-card {
+    border-radius: 10px;
+    padding: 0.85rem 1rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--surface-primary, #fff);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    min-height: 120px;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
+    }
+
+    // Color variants - refined to match screenshot exactly
+    &--blue {
+        background: #eef2ff;
+
+        [data-theme='dark'] & {
+            background: rgba(99, 130, 255, 0.1);
+        }
+    }
+
+    &--green {
+        background: #ecfdf3;
+
+        [data-theme='dark'] & {
+            background: rgba(52, 199, 130, 0.1);
+        }
+    }
+
+    &--orange {
+        background: #fff8f1;
+
+        [data-theme='dark'] & {
+            background: rgba(255, 160, 60, 0.1);
+        }
+    }
+
+    &--payment {
+        background: var(--surface-primary, #fff);
+        border: 1px solid var(--border-subtle, #e5e7eb);
+        padding: 0.75rem 0.85rem;
+
+        [data-theme='dark'] & {
+            background: var(--bg-secondary, #1e2030);
+        }
+    }
+}
+
+.crm-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.crm-card-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary, #475569);
+    margin-top: auto;
+}
+
+.crm-payment-main-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.crm-card-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.crm-total-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+.crm-total-label {
+    font-size: 0.65rem;
+    color: var(--text-secondary, #64748b);
+    margin-top: 0.15rem;
+}
+
+// Admission sub-rows
+.crm-admission-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-top: 0.2rem;
+}
+
+.crm-sub-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary, #0f172a);
+}
+
+.crm-sub-label {
+    font-size: 0.65rem;
+    color: var(--text-secondary, #64748b);
+}
+
+// Right panel (coloured background for stats)
+.crm-card-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: 6px;
+    min-width: 80px;
+
+    &--blue {
+        background: #dbeafe;
+
+        [data-theme='dark'] & {
+            background: rgba(99, 130, 255, 0.2);
+        }
+    }
+
+    &--green {
+        background: #d1fae5;
+
+        [data-theme='dark'] & {
+            background: rgba(52, 199, 130, 0.2);
+        }
+    }
+
+    &--orange {
+        background: #ffedd5;
+
+        [data-theme='dark'] & {
+            background: rgba(255, 160, 60, 0.2);
+        }
+    }
+}
+
+// Individual stat item inside right panel
+.crm-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+}
+
+.crm-stat-value {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+    line-height: 1.1;
+}
+
+.crm-stat-label {
+    font-size: 0.6rem;
+    color: var(--text-secondary, #64748b);
+}
+
+// =============================================
+// Payment card special layout
+// =============================================
+.crm-payment-inner {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.crm-payment-sub {
+    flex: 1;
+    border-radius: 6px;
+    border: 1.5px dashed;
+    padding: 0.6rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.15rem;
+
+    &--collection {
+        border-color: #cbd5e1;
+    }
+
+    &--due {
+        border-color: #cbd5e1;
+    }
+}
+
+.crm-payment-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.crm-payment-type {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-primary, #0f172a);
+}
+
+.crm-payment-period {
+    font-size: 0.55rem;
+    color: var(--text-secondary, #64748b);
+}
+
+.crm-payment-amount {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+    margin-top: 0.15rem;
+    margin-bottom: 0.2rem;
+}
+
+.crm-payment-meta {
+    font-size: 0.58rem;
+    color: var(--text-secondary, #64748b);
+}
